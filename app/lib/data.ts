@@ -68,6 +68,8 @@ export async function fetchCardData() {
       invoiceStatusPromise,
     ]);
 
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+
     const numberOfInvoices = Number(invoiceRes[0].count ?? '0');
     const numberOfCustomers = Number(customerRes[0].count ?? '0');
     const totalPaidInvoices = formatCurrency(statusRes[0].paid ?? '0');
